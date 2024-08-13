@@ -8,5 +8,3 @@ const settings = {
 const alchemy = new Alchemy(settings);
 
 alchemy.core.getBlockNumber("finalized").then(console.log);
-
-
