@@ -27,7 +27,7 @@ async function main() {
 
   let transaction = {
     to: "0x743dC4A3bEE2ECA232b11283cE9a6B9370FB70A0",
-    value: Utils.parseEther("0.001"), // 0.001 worth of ETH being sent
+    value: Utils.parseEther("0.002"), // 0.001 worth of ETH being sent
     gasLimit: "21000",
     maxPriorityFeePerGas: Utils.parseUnits("5", "gwei"),
     maxFeePerGas: Utils.parseUnits("20", "gwei"),
@@ -39,7 +39,8 @@ async function main() {
   let rawTransaction = await wallet.signTransaction(transaction);
   console.log("Raw tx: ", rawTransaction);
   let tx = await alchemy.core.sendTransaction(rawTransaction);
-  console.log(`https://goerli.etherscan.io/tx/${tx.hash}`);
+  console.log(`https://sepolia.etherscan.io/tx/${tx.hash}`);
 }
 
+// https://sepolia.etherscan.io/tx/0x10effecfd627c6aab029ec68f55755999f10abd072d94abad1a5ee4641806521
 main();
