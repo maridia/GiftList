@@ -1,5 +1,8 @@
 const { Alchemy, Network, Wallet, Utils } = require("alchemy-sdk");
-require("dotenv").config();
+
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
+// require("dotenv").config();
 
 // Address: 0xB8E36bC625B2C9614AD689a625433D2f8121722b
 // Private Key: 0xdefd70781ee6c550597af0b7d1892d5e026430ec57ced9193cb3c93df6c59748
@@ -10,6 +13,8 @@ require("dotenv").config();
 // Mnemonic: eager trouble nephew portion more horse wall pave music moral film fashion
 
 const { TEST_API_KEY, TEST_PRIVATE_KEY } = process.env;
+console.log("TEST_API_KEY: ", TEST_API_KEY);
+console.log("Looking for modules in:", module.paths);
 
 const settings = {
   apiKey: TEST_API_KEY,
@@ -27,7 +32,7 @@ async function main() {
 
   let transaction = {
     to: "0x743dC4A3bEE2ECA232b11283cE9a6B9370FB70A0",
-    value: Utils.parseEther("0.002"), // 0.001 worth of ETH being sent
+    value: Utils.parseEther("0.0022"), // 0.001 worth of ETH being sent
     gasLimit: "21000",
     maxPriorityFeePerGas: Utils.parseUnits("5", "gwei"),
     maxFeePerGas: Utils.parseUnits("20", "gwei"),
